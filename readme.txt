@@ -2,7 +2,7 @@ Common programming questions
 
 Q1  Write a program to print Hello world on the standard output.
 
-Q2  Write a program that asks the user for their name and greets them with their name.
+Q2  Write a program that asks the user for their name and greet them with their name.
 
 Q3  Modify the previous program such that only the users Alice and Bob are greeted with their names.
 
