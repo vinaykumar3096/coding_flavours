@@ -6,8 +6,9 @@
 snum=71
 echo $snum
 num=0
-trial=10
-while [ $smun -gt $num ] || [ $snum -lt $num ]
+trial=6 
+_list=": "
+until [ $snum -eq $num ] 
 do
     echo -n "please enter a number : "
     read num
@@ -15,20 +16,23 @@ do
         echo "too large"
     elif [ $num -lt $snum ]; then
         echo "too small"
-    fi
-    match=`echo $list | grep $num`
+    else
+		break
+	fi
+    match=`echo "$_list" | grep $num -o`
     if [ "$num" = "$match" ]; then
         echo "again same number"
-        echo $list
+        echo $_list
     else
-        list=`echo "$list $num"`
+        _list=`echo "$_list $num"`
         trial=`expr $trial - 1`
     fi
     if [ $trial -eq 0 ]; then
         break
     fi
+	
 done
-if [ ! "$smun" = "$num" ]; then
+if [ $snum -eq $num ]; then
     echo "congrats the secret number was $snum"
 else
     echo "Sorry, you failed "
