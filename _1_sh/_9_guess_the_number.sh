@@ -1,10 +1,16 @@
-#!/usr/bin/sh
-#Q9  Write a guessing game where the user has to guess a secret number. After every guess the program 
-#    tells the user whether their number was too large or too small. At the end the number of tries 
-#    needed should be printed. It counts only as one try if they input the same number multiple times consecutively.
+#Q9 Write a guessing game where the user has to guess a secret number.
+#	After every guess the program tells the user whether their number 
+#	was too large or too small. At the end the number of tries needed 
+#	should be printed. It counts only as one try if they input the same 
+#	number multiple times consecutivel 
 
-snum=71
-echo $snum
+#!/usr/bin/bash
+snum=`expr $RANDOM % 100`
+
+#!/usr/bin/sh
+#echo $snum
+echo "Welcome to guess game"
+echo "The secret number will be between 1 - 100"
 num=0
 trial=6 
 _list=": "
