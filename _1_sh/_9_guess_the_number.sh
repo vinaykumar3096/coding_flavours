@@ -4,10 +4,10 @@
 #	should be printed. It counts only as one try if they input the same 
 #	number multiple times consecutivel 
 
-#!/usr/bin/bash
+#!/bin/bash
 snum=`expr $RANDOM % 100`
 
-#!/usr/bin/sh
+#!/bin/sh
 #echo $snum
 echo "Welcome to guess game"
 echo "The secret number will be between 1 - 100"
