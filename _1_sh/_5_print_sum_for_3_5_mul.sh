@@ -9,7 +9,7 @@ echo "enter 2 for sum of multiple of 5"
 echo -n "choice : "
 read choice
 flag=0
-ext=`echo $num | grep '^[0-9]\+'`
+ext=`echo $num | grep '^[0-9]\+' -o`
 if [ "$num" = "$ext" ]; then
     sum=0
     i=0
