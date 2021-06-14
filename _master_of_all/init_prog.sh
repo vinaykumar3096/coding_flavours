@@ -12,15 +12,37 @@ do
 	if [ "$login_status" = "1" ]; then
 		clear
 		source ./info.sh
-		echo "welcome $who $cusn"
 		if [ "$who" = "SUPER_USER" ] ; then
 			source ./su_user.sh
 		else
 			source ./nml_user.sh
 		fi
-		sleep 3
-		break
+		clear
+		echo -n "Want to continue [Y|n] : "
+		read choice 
+		if [ "$choice" = "n" ]; then
+			echo "Exiting...."
+			unset sys_f
+			unset login_ststus
+			unset who
+			unset cusn
+			sleep 1
+			break
+		else 
+			sys_f=.sys_f
+			login_ststus=0
+			who=USER
+			cusn=N
+			echo "Restarting!"
+			login_status=0
+			sleep 1
+		fi
+		unset choice	
 	elif [ "$login_status" = "2" ]; then
+		sys_f=.sys_f
+		login_ststus=0
+		who=USER
+		cusn=N
 		echo "login failed"
 		echo "try again!!!..."
 		echo "wait for 3 sec"

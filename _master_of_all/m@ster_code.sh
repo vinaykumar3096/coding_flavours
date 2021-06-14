@@ -10,7 +10,7 @@ init_s=init_prog.sh
 #===============================
 
 if [ -f ./init_prog.sh ]; then
-	xterm -e "bash ./init_prog.sh"
+	xterm -T "Friends DB Management Sys." -e "bash ./init_prog.sh"
 else
 	i=1
 	while [ $i -le 5 ]

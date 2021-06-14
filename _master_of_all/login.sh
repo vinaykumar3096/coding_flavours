@@ -4,13 +4,14 @@ echo "login system..."
 echo "Enter"
 echo -n "user name : "
 read cusn
-us=`grep -e "$cusn" $sys_f | awk '{print $2}'`
+us=`grep "${cusn} " $sys_f | awk '{print $2}'`
 if [ "$us" = "$cusn" ]; then
 	echo -n ""
 else
 	echo "user not in list!"
 	echo "ask admin to add a user"
 	sleep 2 
+	unset us
 	return
 fi
 i=3
@@ -19,9 +20,11 @@ do
 	echo -n "password : "
 	read -s pass
 	if [ -f $sys_f ]; then
-		check=`grep -e "$cusn" $sys_f | awk '{print $3}'`
-		who=`grep -e "$cusn" $sys_f | awk '{print $1}'`
+		check=`grep "${cusn} " $sys_f | awk '{print $3}'`
+		who=`grep "${cusn} " $sys_f | awk '{print $1}'`
 		if [ "$pass" = "$check" ]; then
+			unset check
+			unset pass
 			echo ""
 			echo "user $cusn verified !"
 			sleep 1
@@ -40,3 +43,4 @@ do
 		exit	
 	fi
 done
+unset us
