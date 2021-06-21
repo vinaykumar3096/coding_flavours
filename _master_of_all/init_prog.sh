@@ -29,7 +29,7 @@ do
 			sleep 1
 			break
 		else 
-			sys_f=".sys_f"
+			sys_f=".sys_up"
 			login_ststus=0
 			who=USER
 			cusn=N
@@ -39,7 +39,7 @@ do
 		fi
 		unset choice	
 	elif [ "$login_status" = "2" ] ; then
-		sys_f=".sys_f"
+		sys_f=".sys_up"
 		login_ststus=0
 		who=USER
 		cusn=N

@@ -3,8 +3,10 @@ source ./info.sh
 echo "Enter"
 echo -n "user name : "
 read chusn
-us=`grep -e "$chusn" $sys_f | awk '{print $2}'`
-olp=`grep -e "$chusn" $sys_f | awk '{print $3}'`
+us=`grep -e "$chusn " $sys_f | awk '{print $2}'`
+us=`echo $us | grep -e "\w*" -o`
+olp=`grep -e "$chusn " $sys_f | awk '{print $3}'`
+olp=`echo $olp | grep -e "\w*" -o`
 if [ "$who" = "SUPER_USER" ] ; then
 	if [ "$us" = "$chusn" ] ; then
 		echo -n "New passwd : "
@@ -12,7 +14,7 @@ if [ "$who" = "SUPER_USER" ] ; then
 		echo -n "Re-enter passwd : "
 		read -s nnpass
 		if [ "$npass" = "$nnpass" ] ; then
-			exp="sed -ie '/$chusn/s/$olp\$/$npass/' $sys_f"	
+			exp="sed -ie '/$chusn /s/$olp\$/$npass/' $sys_f"
 			eval $exp
 			unset exp
 			echo "updated"
@@ -27,13 +29,13 @@ if [ "$who" = "SUPER_USER" ] ; then
 		echo "User not in list :("
 	fi
 else
-	if [ "$cusn" = "$chusn" ]; then
+	if [ "$cusn" = "$chusn" ] ; then
 		echo -n "New passwd : "
 		read -s npass
 		echo -n "Re-enter passwd : "
 		read -s nnpass
 		if [ "$npass" = "$nnpass" ] ; then
-			exp="sed -ie '/$chusn/s/$olp\$/$npass/' $sys_f"	
+			exp="sed -ie '/$chusn /s/$olp\$/$npass/' $sys_f"	
 			eval $exp
 			unset exp
 			echo "updated"
