@@ -1,15 +1,15 @@
 #==================================
-sys_f=.sys_up
+sys_f=".sys_up"
 login_status=0
 who=USER
 cusn=N
 #==================================        
 while [ true ]
 do	
-	if [ -f ./login.sh ]; then
+	if [ -f ./login.sh ] ; then
 		source ./login.sh
 	fi
-	if [ "$login_status" = "1" ]; then
+	if [ "$login_status" = "1" ] ; then
 		clear
 		source ./info.sh
 		if [ "$who" = "SUPER_USER" ] ; then
@@ -20,7 +20,7 @@ do
 		clear
 		echo -n "Want to continue [Y|n] : "
 		read choice 
-		if [ "$choice" = "n" ]; then
+		if [ "$choice" = "n" ] ; then
 			echo "Exiting...."
 			unset sys_f
 			unset login_ststus
@@ -29,7 +29,7 @@ do
 			sleep 1
 			break
 		else 
-			sys_f=.sys_f
+			sys_f=".sys_f"
 			login_ststus=0
 			who=USER
 			cusn=N
@@ -38,8 +38,8 @@ do
 			sleep 1
 		fi
 		unset choice	
-	elif [ "$login_status" = "2" ]; then
-		sys_f=.sys_f
+	elif [ "$login_status" = "2" ] ; then
+		sys_f=".sys_f"
 		login_ststus=0
 		who=USER
 		cusn=N

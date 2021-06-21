@@ -12,7 +12,7 @@ if [ "$who" = "SUPER_USER" ] ; then
 		echo -n "Re-enter passwd : "
 		read -s nnpass
 		if [ "$npass" = "$nnpass" ] ; then
-			exp="sed -ine '/$chusn/s/$olp/$npass/' $sys_f"	
+			exp="sed -ie '/$chusn/s/$olp\$/$npass/' $sys_f"	
 			eval $exp
 			unset exp
 			echo "updated"
@@ -33,7 +33,7 @@ else
 		echo -n "Re-enter passwd : "
 		read -s nnpass
 		if [ "$npass" = "$nnpass" ] ; then
-			exp="sed -ine '/$chusn/s/$olp/$npass/' $sys_f"	
+			exp="sed -ie '/$chusn/s/$olp\$/$npass/' $sys_f"	
 			eval $exp
 			unset exp
 			echo "updated"
